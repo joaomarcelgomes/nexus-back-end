@@ -15,8 +15,12 @@ namespace Backend.Domain.Tests.Queries
 
         public BuyQueryTests()
         {
-            var item = new Buy(new List<Product>()
-            { new Product("Product 1", "The product 1", 2.0, 2) }, DateTime.Now);
+            var item = new Buy(
+                new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+                new List<Product>()
+                    { new Product("Product 1", "The product 1", 2.0, 2) }, 
+                DateTime.Now
+                );
             _items = new List<Buy> { item };
 
             _id = item.Id;

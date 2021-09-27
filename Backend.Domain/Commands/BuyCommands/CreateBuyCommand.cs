@@ -7,11 +7,13 @@ namespace Backend.Domain.Commands.BuyCommands
 {
     public class CreateBuyCommand : Notifiable, ICommand
     {
-        public CreateBuyCommand(List<Product> products)
+        public CreateBuyCommand(User user, List<Product> products)
         {
+            User = user;
             Products = products;
         }
 
+        public User User { get; private set; }
         public List<Product> Products { get; set; }
 
         public bool Valid()

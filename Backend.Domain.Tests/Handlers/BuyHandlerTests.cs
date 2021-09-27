@@ -13,9 +13,14 @@ namespace Backend.Domain.Tests.Handlers
     {
         private readonly BuyHandler _handler = new BuyHandler(new FakeBuyRepository());
         private readonly CreateBuyCommand _valid = new CreateBuyCommand(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
             new List<Product>{ new Product("Product 1", "The product", 2.0, 2) }
             );
-        private readonly CreateBuyCommand _inValid = new CreateBuyCommand(new List<Product>());
+        
+        private readonly CreateBuyCommand _inValid = new CreateBuyCommand(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+            new List<Product>()
+            );
         
         [TestMethod]
         public void ShouldCreateBuyWhenCommandIsValid()

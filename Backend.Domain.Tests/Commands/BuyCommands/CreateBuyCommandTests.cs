@@ -13,8 +13,14 @@ namespace Backend.Domain.Tests.Commands.BuyCommands
 
         public CreateBuyCommandTests()
         {
-            _valid = new CreateBuyCommand(new List<Product>{ new Product("Produto 1", "The product", 2.0, 2) });
-            _inValid = new CreateBuyCommand(new List<Product>());
+            _valid = new CreateBuyCommand(
+                new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+                new List<Product>{ new Product("Produto 1", "The product", 2.0, 2) }
+                );
+            _inValid = new CreateBuyCommand(
+                new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+                new List<Product>()
+                );
         }
         
         [TestMethod]
