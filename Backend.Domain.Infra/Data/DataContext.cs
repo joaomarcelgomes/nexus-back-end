@@ -13,11 +13,13 @@ namespace Backend.Domain.Infra.Data
         
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Buy> Buys { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             new UserMapping().Configure(builder.Entity<User>());
             new ProductMapping().Configure(builder.Entity<Product>());
+            new BuyMapping().Configure(builder.Entity<Buy>());
         }
     }
 }
