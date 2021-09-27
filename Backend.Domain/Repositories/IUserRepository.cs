@@ -7,5 +7,6 @@ namespace Backend.Domain.Repositories
     {
         void Create(User user);
         Task<bool> CheckEmail(string email);
+        Task<User> Login(string email, string password);
     }
 }

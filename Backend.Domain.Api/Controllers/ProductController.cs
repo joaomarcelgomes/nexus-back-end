@@ -16,7 +16,7 @@ namespace Backend.Domain.Api.Controllers
     public class ProductController : ControllerBase
     {
         [HttpPost("create")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult<GenericCommandResult> Create([FromServices] ProductHandler handler,
             [FromBody] CreateProductCommand command)
         {
