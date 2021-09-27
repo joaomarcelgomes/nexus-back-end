@@ -16,6 +16,7 @@ namespace Backend.Domain.Api.Controllers
     public class BuyController : ControllerBase
     {
         [HttpPost("create")]
+        [Authorize(Roles = "Client")]
         public ActionResult<GenericCommandResult> Create([FromServices] BuyHandler handler,
             [FromBody] CreateBuyCommand command)
         {
@@ -32,7 +33,7 @@ namespace Backend.Domain.Api.Controllers
         }
 
         [HttpGet("{id:guid}/products")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Client")]
         public async Task<ActionResult<GenericCommandResult>> FindById([FromServices] IBuyRepository repository,[FromQuery] PaginationFilter filter, Guid id)
         {
             try
@@ -53,7 +54,7 @@ namespace Backend.Domain.Api.Controllers
         }
 
         [HttpGet("results")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Client")]
         public async Task<ActionResult<GenericCommandResult>> Results([FromServices] IBuyRepository repository,[FromQuery] PaginationFilter filter)
         {
             try
