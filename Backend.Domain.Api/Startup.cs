@@ -71,6 +71,9 @@ namespace Backend.Domain.Api
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<UserHandler, UserHandler>();
+            
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<ProductHandler, ProductHandler>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
