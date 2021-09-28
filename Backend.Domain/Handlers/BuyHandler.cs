@@ -27,7 +27,7 @@ namespace Backend.Domain.Handlers
                     Notifications
                 );
 
-            var model = new Buy(command.Products, DateTime.Now);
+            var model = new Buy(command.User, command.Products, DateTime.Now);
 
             _repository.Create(model);
 

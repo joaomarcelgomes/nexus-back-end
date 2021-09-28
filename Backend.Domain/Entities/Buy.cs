@@ -11,13 +11,17 @@ namespace Backend.Domain.Entities
         private readonly IList<Product> _products;
 
         public Buy() {}
-        public Buy(List<Product> products, DateTime dateTime)
+        public Buy(User user, IList<Product> products, DateTime dateTime)
         {
+            UserId = user.Id;
+            User = user;
             DateTime = dateTime;
             _products = products;
         }
 
-        public DateTime DateTime { get; private set; }
+        public Guid UserId { get; }
+        public User User { get; }
+        public DateTime DateTime { get; }
         public IReadOnlyCollection<Product> Products => _products == null ? new List<Product>() : _products.ToArray();
     }
 }

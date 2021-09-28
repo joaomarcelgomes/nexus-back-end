@@ -11,24 +11,23 @@ namespace Backend.Domain.Tests.Handlers
     [TestClass]
     public class BuyHandlerTests
     {
-        private readonly BuyHandler _handler = new BuyHandler(new FakeBuyRepository());
-        private readonly CreateBuyCommand _valid = new CreateBuyCommand(
+        private readonly BuyHandler _handler = new(new FakeBuyRepository());
+        private readonly CreateBuyCommand _valid = new(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
             new List<Product>{ new Product("Product 1", "The product", 2.0, 2) }
             );
-        private readonly CreateBuyCommand _inValid = new CreateBuyCommand(new List<Product>());
         
-        [TestMethod]
-        public void ShouldCreateBuyWhenCommandIsValid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_valid);
-            Assert.AreEqual(result.Success, true);
-        }
+        private readonly CreateBuyCommand _inValid = new(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+            new List<Product>()
+            );
 
         [TestMethod]
-        public void ShouldReturnErrorWhenCommandIsInvalid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_inValid);
-            Assert.AreEqual(result.Success, false);
-        }
+        public void ShouldCreateBuyWhenCommandIsValid() 
+            => Assert.AreEqual(_handler.Handle(_valid).Success, true);
+
+        [TestMethod]
+        public void ShouldReturnErrorWhenCommandIsInvalid() 
+            => Assert.AreEqual(_handler.Handle(_inValid).Success, false);
     }
 }

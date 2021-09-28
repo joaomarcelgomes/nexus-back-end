@@ -15,12 +15,12 @@ namespace Backend.Domain.Tests.Queries
         {
             _items = new List<User>
             {
-                new User("Pedro", "pedro@domain.com", "@Admin1234", "Client"),
-                new User("Roberto", "roberto@domain.com", "@Admin1234", "Client"),
-                new User("Jose", "jose@domain.com", "@Admin1234", "Client")
+                new("Pedro", "pedro@domain.com", "@Admin1234", "Client"),
+                new("Roberto", "roberto@domain.com", "@Admin1234", "Client"),
+                new("Jose", "jose@domain.com", "@Admin1234", "Client")
             };
         }
-        
+
         [TestMethod]
         public void ShouldDoLoginWhenUserExist()
         {

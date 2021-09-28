@@ -38,7 +38,7 @@ namespace Backend.Domain.Api.Controllers
         {
             try
             {
-                PaginationFilter paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                var paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
 
                 var products = string.IsNullOrEmpty(search)
                     ? await repository.FindAll(paginationFilter)

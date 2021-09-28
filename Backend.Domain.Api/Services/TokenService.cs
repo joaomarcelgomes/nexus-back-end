@@ -18,8 +18,8 @@ namespace Backend.Domain.Api.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Email, user.Email.ToString()),
-                    new Claim(ClaimTypes.Role, user.Role.ToString())
+                    new(ClaimTypes.Email, user.Email),
+                    new(ClaimTypes.Role, user.Role)
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

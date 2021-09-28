@@ -17,7 +17,7 @@ namespace Backend.Domain.ValueObjects
             );
         }
 
-        public string Address { get; private set; }
+        public string Address { get; }
 
         private bool Validate(string address)
         {

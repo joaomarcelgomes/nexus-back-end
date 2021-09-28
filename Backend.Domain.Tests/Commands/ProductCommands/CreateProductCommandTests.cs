@@ -12,31 +12,19 @@ namespace Backend.Domain.Tests.Commands.ProductCommands
         private readonly CreateProductCommand _inValidAmount = new("Product 1", "The product", 2.0, 0);
 
         [TestMethod]
-        public void ShouldReturnSuccessWhenProductIsValid()
-        {
-            _valid.Valid();
-            Assert.AreEqual(_valid.IsValid, true);
-        }
-        
+        public void ShouldReturnSuccessWhenProductIsValid() 
+            => Assert.AreEqual(_valid.Valid(), true);
+
         [TestMethod]
-        public void ShouldReturnErrorWhenProductIsInValid()
-        {
-            _inValid.Valid();
-            Assert.AreEqual(_inValid.IsValid, false);
-        }
-        
+        public void ShouldReturnErrorWhenProductIsInValid() 
+            => Assert.AreEqual(_inValid.Valid(), false);
+
         [TestMethod]
-        public void ShouldReturnErrorWhenPriceIsValid()
-        {
-            _inValidPrice.Valid();
-            Assert.AreEqual(_inValidPrice.IsValid, false);
-        }
-        
+        public void ShouldReturnErrorWhenPriceIsValid() 
+            => Assert.AreEqual(_inValidPrice.Valid(), false);
+
         [TestMethod]
-        public void ShouldReturnErrorWhenAmountIsInValid()
-        {
-            _inValidAmount.Valid();
-            Assert.AreEqual(_inValidAmount.IsValid, false);
-        }
+        public void ShouldReturnErrorWhenAmountIsInValid() 
+            => Assert.AreEqual(_inValidAmount.Valid(), false);
     }
 }
