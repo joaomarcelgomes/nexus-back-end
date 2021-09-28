@@ -62,10 +62,7 @@ namespace Backend.Domain.Api
                     ValidateAudience = false
                 };
             });
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend.Domain.Api", Version = "v1" });
-            });
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "Backend.Domain.Api", Version = "v1" }));
 
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 
@@ -93,10 +90,7 @@ namespace Backend.Domain.Api
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
