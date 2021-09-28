@@ -40,18 +40,14 @@ namespace Backend.Domain.Api.Controllers
             {
                 var response = await repository.Login(model.Email, model.Password);
 
-                if (response != null)
-                {
-                    var token = TokenService.GenerateToken(response);
+                if (response == null) return NotFound(new GenericCommandResult(false, "User not found", model));
+                
+                var token = TokenService.GenerateToken(response);
 
-                    return Ok(new {response = response, token = token});
-                }
-
-                return NotFound(new GenericCommandResult(false, "User not found", model));
+                return Ok(new {response, token});
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex);
                 return BadRequest(new GenericCommandResult(false, "Error trying to login", model));
             }
         }

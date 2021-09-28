@@ -36,10 +36,9 @@ namespace Backend.Domain.Api.Controllers
         [Authorize(Roles = "Client")]
         public async Task<ActionResult<GenericCommandResult>> FindById([FromServices] IBuyRepository repository,[FromQuery] PaginationFilter filter, Guid id)
         {
+            var paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
             try
             {
-                PaginationFilter paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
-
                 var buy = await repository.FindById(paginationFilter, id);
 
                 if(buy == null)
@@ -59,7 +58,7 @@ namespace Backend.Domain.Api.Controllers
         {
             try
             {
-                PaginationFilter paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+                var paginationFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
 
                 var buys = await repository.FindAll(paginationFilter);
 
