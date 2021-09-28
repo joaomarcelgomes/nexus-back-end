@@ -14,10 +14,10 @@ namespace Backend.Domain.Commands.ProductCommands
             Amount = amount;
         }
 
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public double Price { get; private set; }
-        public int Amount { get; private set; }
+        public string Name { get; }
+        public string Description { get; }
+        public double Price { get; }
+        public int Amount { get; }
 
         public bool Valid()
         {

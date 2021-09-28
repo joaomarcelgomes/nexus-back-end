@@ -11,7 +11,7 @@ namespace Backend.Domain.Entities
         private readonly IList<Product> _products;
 
         public Buy() {}
-        public Buy(User user, List<Product> products, DateTime dateTime)
+        public Buy(User user, IList<Product> products, DateTime dateTime)
         {
             UserId = user.Id;
             User = user;
@@ -19,9 +19,9 @@ namespace Backend.Domain.Entities
             _products = products;
         }
 
-        public Guid UserId { get; private set; }
-        public User User { get; private set; }
-        public DateTime DateTime { get; private set; }
+        public Guid UserId { get; }
+        public User User { get; }
+        public DateTime DateTime { get; }
         public IReadOnlyCollection<Product> Products => _products == null ? new List<Product>() : _products.ToArray();
     }
 }

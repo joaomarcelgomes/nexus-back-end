@@ -14,10 +14,10 @@ namespace Backend.Domain.Commands.UserCommands
             Role = role;
         }
 
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public string Name { get; }
+        public string Email { get; }
+        public string Password { get; }
+        public string Role { get; }
         
         public bool Valid()
         {
