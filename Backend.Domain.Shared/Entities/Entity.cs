@@ -6,6 +6,6 @@ namespace Backend.Domain.Shared.Entities
     {
         protected Entity() => Id = Guid.NewGuid();
 
-        public Guid Id { get; private set; }
+        public Guid Id { get; }
     }
 }
