@@ -8,33 +8,21 @@ namespace Backend.Domain.Tests.Commands.BuyCommands
     [TestClass]
     public class CreateBuyCommandTests
     {
-        private readonly CreateBuyCommand _valid;
-        private readonly CreateBuyCommand _inValid;
+        private readonly CreateBuyCommand _valid = new(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+        new List<Product>{ new("Product 1", "The product", 2.0, 2) }
+        );
+        private readonly CreateBuyCommand _inValid = new(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+            new List<Product>()
+        );
 
-        public CreateBuyCommandTests()
-        {
-            _valid = new CreateBuyCommand(
-                new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
-                new List<Product>{ new Product("Produto 1", "The product", 2.0, 2) }
-                );
-            _inValid = new CreateBuyCommand(
-                new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
-                new List<Product>()
-                );
-        }
-        
         [TestMethod]
-        public void ShouldReturnSuccessWhenListContainTheItem()
-        {
-            _valid.Valid();
-            Assert.AreEqual(_valid.IsValid, true);
-        }
-        
+        public void ShouldReturnSuccessWhenListContainTheItem() 
+            => Assert.AreEqual(_valid.Valid(), true);
+
         [TestMethod]
-        public void ShouldReturnErrorWhenListNotContainTheItem()
-        {
-            _inValid.Valid();
-            Assert.AreEqual(_inValid.IsValid, false);
-        }
+        public void ShouldReturnErrorWhenListNotContainTheItem() 
+            => Assert.AreEqual(_inValid.Valid(), false);
     }
 }

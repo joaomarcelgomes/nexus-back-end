@@ -9,23 +9,16 @@ namespace Backend.Domain.Tests.Handlers
     [TestClass]
     public class ProductHandlerTests
     {
-        private readonly ProductHandler _handler = new ProductHandler(new FakeProductRepository());
-        private readonly CreateProductCommand _valid = new CreateProductCommand("Product 1", "The product", 2.0, 2);
-        private readonly CreateProductCommand _inValid = new CreateProductCommand("", "", 0.0, 0);
-        
-        [TestMethod]
-        public void ShouldCreateUserWhenCommandIsValid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_valid);
-            Assert.AreEqual(result.Success, true);
-        }
+        private readonly ProductHandler _handler = new(new FakeProductRepository());
+        private readonly CreateProductCommand _valid = new("Product 1", "The product", 2.0, 2);
+        private readonly CreateProductCommand _inValid = new("", "", 0.0, 0);
 
         [TestMethod]
-        public void ShouldReturnErrorWhenCommandIsInvalid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_inValid);
-            Assert.AreEqual(result.Success, false);
-        }
-        
+        public void ShouldCreateUserWhenCommandIsValid() 
+            => Assert.AreEqual(_handler.Handle(_valid).Success, true);
+
+        [TestMethod]
+        public void ShouldReturnErrorWhenCommandIsInvalid() 
+            => Assert.AreEqual(_handler.Handle(_inValid).Success, false);
     }
 }

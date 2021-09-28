@@ -13,8 +13,8 @@ namespace Backend.Domain.Commands.BuyCommands
             Products = products;
         }
 
-        public User User { get; private set; }
-        public List<Product> Products { get; set; }
+        public User User { get; }
+        public List<Product> Products { get; }
 
         public bool Valid()
         {

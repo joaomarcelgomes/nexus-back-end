@@ -7,7 +7,7 @@ namespace Backend.Domain.Entities
 {
     public class User : Entity
     {
-        private IList<Buy> _buys;
+        private readonly IList<Buy> _buys;
         public User(string name, string email, string password, string role)
         {
             Name = name;
@@ -17,10 +17,10 @@ namespace Backend.Domain.Entities
             _buys = new List<Buy>();
         }
 
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Password { get; private set; }
-        public string Role { get; private set; }
-        public IReadOnlyCollection<Buy> Buys => _buys == null ? new List<Buy>() : _buys.ToArray();
+        public string Name { get; }
+        public string Email { get; }
+        public string Password { get; }
+        public string Role { get; }
+        public IEnumerable<Buy> Buys => _buys == null ? new List<Buy>() : _buys.ToArray();
     }
 }

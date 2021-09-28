@@ -15,9 +15,9 @@ namespace Backend.Domain.Tests.Queries
         {
             _items = new List<Product>
             {
-                new Product("Product 1", "The product 1", 2.0, 2),
-                new Product("Product 2", "The product 2", 3.0, 3),
-                new Product("Product 3", "The product 3", 4.0, 4)
+                new("Product 1", "The product 1", 2.0, 2),
+                new("Product 2", "The product 2", 3.0, 3),
+                new("Product 3", "The product 3", 4.0, 4)
             };
         }
 

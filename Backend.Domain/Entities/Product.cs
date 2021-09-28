@@ -16,10 +16,10 @@ namespace Backend.Domain.Entities
             _buys = new List<Buy>();
         }
 
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public double Price { get; private set; }
-        public int Amount { get; private set; }
-        public IReadOnlyCollection<Buy> Buys => _buys == null ? new List<Buy>() : _buys.ToArray();
+        public string Name { get; }
+        public string Description { get; }
+        public double Price { get; }
+        public int Amount { get; }
+        public IEnumerable<Buy> Buys => _buys == null ? new List<Buy>() : _buys.ToArray();
     }
 }
