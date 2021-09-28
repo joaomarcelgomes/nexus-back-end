@@ -9,22 +9,16 @@ namespace Backend.Domain.Tests.Handlers
     [TestClass]
     public class UserHandlerTests
     {
-        private readonly UserHandler _handler = new UserHandler(new FakeUserRepository());
-        private readonly CreateUserCommand _valid = new CreateUserCommand("Pedro", "pedro@domain.com", "@Admin1234", "Client");
-        private readonly CreateUserCommand _inValid = new CreateUserCommand("roberto","roberto@.com", "senha", "Client");
+        private readonly UserHandler _handler = new(new FakeUserRepository());
+        private readonly CreateUserCommand _valid = new("Pedro", "pedro@domain.com", "@Admin1234", "Client");
+        private readonly CreateUserCommand _inValid = new("roberto","roberto@.com", "senha", "Client");
 
         [TestMethod]
-        public void ShouldCreateUserWhenCommandIsValid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_valid);
-            Assert.AreEqual(result.Success, true);
-        }
+        public void ShouldCreateUserWhenCommandIsValid() 
+            => Assert.AreEqual(_handler.Handle(_valid).Success, true);
 
         [TestMethod]
-        public void ShouldReturnErrorWhenCommandIsInvalid()
-        {
-            var result = (GenericCommandResult) _handler.Handle(_inValid);
-            Assert.AreEqual(result.Success, false);
-        }
+        public void ShouldReturnErrorWhenCommandIsInvalid() 
+            => Assert.AreEqual(_handler.Handle(_inValid).Success, false);
     }
 }
