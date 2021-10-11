@@ -8,8 +8,8 @@ namespace Backend.Domain.Repositories
 {
     public interface IProductRepository
     {
-        public void Create(Product product);
-        public Task<List<Product>> FindAll(PaginationFilter filter);
-        public Task<List<Product>> FindByName(PaginationFilter filter, string query);
+        void Create(Product product);
+        Task<List<Product>> FindAll(PaginationFilter filter);
+        Task<List<Product>> FindByName(PaginationFilter filter, string query);
     }
 }

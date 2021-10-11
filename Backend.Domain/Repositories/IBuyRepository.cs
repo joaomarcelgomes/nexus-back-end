@@ -8,8 +8,8 @@ namespace Backend.Domain.Repositories
 {
     public interface IBuyRepository
     {
-        public void Create(Buy buy);
-        public Task<List<Buy>> FindAll(PaginationFilter filter);
-        public Task<Buy> FindById(PaginationFilter filter, Guid id);
+        void Create(Buy buy);
+        Task<List<Buy>> FindAll(PaginationFilter filter);
+        Task<Buy> FindById(PaginationFilter filter, Guid id);
     }
 }
