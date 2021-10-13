@@ -40,5 +40,13 @@ namespace Backend.Domain.Infra.Repositories
                 .Take(filter.PageSize)
                 .AsNoTracking()
                 .FirstOrDefaultAsync();
+
+        public async Task<List<Product>> FindByList(List<String> elements) 
+            => await _context.Products.Where(x => elements.Contains(x.Name)).ToListAsync();
+
+        public async void UpdateProducts(List<Product> products)
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
