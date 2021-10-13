@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Backend.Domain.Commands;
 using Backend.Domain.Commands.BuyCommands;
 using Backend.Domain.Entities;
 using Backend.Domain.Handlers;
@@ -16,8 +15,13 @@ namespace Backend.Domain.Tests.Handlers
             new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
             new List<Product>{ new Product("Product 1", "The product", 2.0, 2) }
             );
-        
+
         private readonly CreateBuyCommand _inValid = new(
+            new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
+            new List<Product>(){ new Product("Product 1", "The product", 2.0, 5) }
+            );
+
+        private readonly CreateBuyCommand _noProducts = new(
             new User("roberto", "roberto@domain.com", "@Admin1234", "Client"), 
             new List<Product>()
             );
@@ -29,5 +33,9 @@ namespace Backend.Domain.Tests.Handlers
         [TestMethod]
         public void ShouldReturnErrorWhenCommandIsInvalid() 
             => Assert.AreEqual(_handler.Handle(_inValid).Success, false);
+
+        [TestMethod]
+        public void ShouldReturnErrorWhenCommandNoHasProducts()
+            => Assert.AreEqual(_handler.Handle(_noProducts).Success, false);
     }
 }
