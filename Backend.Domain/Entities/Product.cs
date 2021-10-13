@@ -19,7 +19,9 @@ namespace Backend.Domain.Entities
         public string Name { get; }
         public string Description { get; }
         public double Price { get; }
-        public int Amount { get; }
+        public int Amount { get; set; }
         public IEnumerable<Buy> Buys => _buys == null ? new List<Buy>() : _buys.ToArray();
+
+        public void Update(int amount) => Amount -= amount;
     }
 }
