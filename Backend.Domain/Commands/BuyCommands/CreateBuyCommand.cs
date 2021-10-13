@@ -14,7 +14,7 @@ namespace Backend.Domain.Commands.BuyCommands
         }
 
         public User User { get; }
-        public List<Product> Products { get; }
+        public List<Product> Products { get; set; }
 
         public bool Valid()
         {
