@@ -22,5 +22,20 @@ namespace Backend.Domain.Tests.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<Product>> FindByList(List<string> elements)
+        {
+            return Task.FromResult(
+                new List<Product>{
+                    new Product("Product 1", "The Product", 2.0, 2),
+                    new Product("Product 2", "The Product", 2.0, 2),
+                    new Product("Product 3", "The Product", 2.0, 2)
+                }
+            );
+        }
+ 
+        public void UpdateProducts(List<Product> products)
+        {
+        }
     }
 }

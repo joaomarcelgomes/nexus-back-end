@@ -11,5 +11,7 @@ namespace Backend.Domain.Repositories
         void Create(Buy buy);
         Task<List<Buy>> FindAll(PaginationFilter filter);
         Task<Buy> FindById(PaginationFilter filter, Guid id);
+        void UpdateProducts(List<Product> products);
+        Task<List<Product>> FindByList(List<String> elements);
     }
 }
