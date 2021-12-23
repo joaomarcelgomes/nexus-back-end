@@ -8,7 +8,6 @@ namespace Backend.Domain.Infra.Mapping
     {
         public void Configure(EntityTypeBuilder<Buy> builder)
         {
-            builder.ToTable("Buys");
             builder.HasKey(b => b.Id);
             builder.Property(b => b.UserId).IsRequired();
             builder.Property(b => b.DateTime).IsRequired();
