@@ -30,14 +30,14 @@ namespace Backend.Domain.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            
-            services.AddControllers();
 
+            services.AddControllers();
+            
             services.AddControllersWithViews()
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
-
+            
             services.AddResponseCompression(options =>
             {
                 options.Providers.Add<GzipCompressionProvider>();
