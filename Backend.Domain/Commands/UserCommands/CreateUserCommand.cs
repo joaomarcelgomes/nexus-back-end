@@ -19,7 +19,7 @@ namespace Backend.Domain.Commands.UserCommands
         public string Password { get; }
         public string Role { get; }
         
-        public bool Valid()
+        public bool Validation()
         {
             AddNotifications(
                 new ValidationContract()
@@ -29,7 +29,7 @@ namespace Backend.Domain.Commands.UserCommands
                     .HasMinLen(Role, 3, "Role", "A role must contain at least 3 characters")
             );
 
-            return IsValid;
+            return Valid;
         }
     }
 }

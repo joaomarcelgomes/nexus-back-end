@@ -19,7 +19,7 @@ namespace Backend.Domain.Commands.ProductCommands
         public double Price { get; }
         public int Amount { get; }
 
-        public bool Valid()
+        public bool Validation()
         {
             AddNotifications(
                 new ValidationContract()
@@ -36,7 +36,7 @@ namespace Backend.Domain.Commands.ProductCommands
             if(Amount <= 0)
                 AddNotification("Amount", "The amount must be greater than 0");
 
-            return IsValid;
+            return Valid;
         }
     }
 }

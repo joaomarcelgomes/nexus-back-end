@@ -17,7 +17,7 @@ namespace Backend.Domain.Handlers
 
         public ICommandResult Handle(CreateProductCommand command)
         {
-            if(!command.Valid())
+            if(!command.Validation())
                 AddNotifications(command.Notifications);
 
             if (Invalid)

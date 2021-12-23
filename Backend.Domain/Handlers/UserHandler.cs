@@ -19,7 +19,7 @@ namespace Backend.Domain.Handlers
 
         public ICommandResult Handle(CreateUserCommand command)
         {
-            if(!command.Valid())
+            if(!command.Validation())
                 AddNotifications(command.Notifications);
 
             if(!_repository.CheckEmail(command.Email).Result)

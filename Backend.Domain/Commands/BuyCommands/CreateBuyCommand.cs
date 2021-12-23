@@ -16,12 +16,12 @@ namespace Backend.Domain.Commands.BuyCommands
         public User User { get; }
         public List<Product> Products { get; set; }
 
-        public bool Valid()
+        public bool Validation()
         {
             if(Products.Count == 0)
                 AddNotification("Products", "The list must have at least 1 item");
 
-            return IsValid;
+            return Valid;
         }
     }
 }

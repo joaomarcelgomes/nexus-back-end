@@ -20,7 +20,7 @@ namespace Backend.Domain.Handlers
 
         public ICommandResult Handle(CreateBuyCommand command)
         {
-            if(!command.Valid())
+            if(!command.Validation())
                 AddNotifications(command.Notifications);
 
             var elements = command.Products.Select(x => x.Name).ToList();
