@@ -13,18 +13,18 @@ namespace Backend.Domain.Tests.Commands.ProductCommands
 
         [TestMethod]
         public void ShouldReturnSuccessWhenProductIsValid() 
-            => Assert.AreEqual(_valid.Valid(), true);
+            => Assert.AreEqual(_valid.Validation(), true);
 
         [TestMethod]
         public void ShouldReturnErrorWhenProductIsInValid() 
-            => Assert.AreEqual(_inValid.Valid(), false);
+            => Assert.AreEqual(_inValid.Validation(), false);
 
         [TestMethod]
         public void ShouldReturnErrorWhenPriceIsValid() 
-            => Assert.AreEqual(_inValidPrice.Valid(), false);
+            => Assert.AreEqual(_inValidPrice.Validation(), false);
 
         [TestMethod]
         public void ShouldReturnErrorWhenAmountIsInValid() 
-            => Assert.AreEqual(_inValidAmount.Valid(), false);
+            => Assert.AreEqual(_inValidAmount.Validation(), false);
     }
 }

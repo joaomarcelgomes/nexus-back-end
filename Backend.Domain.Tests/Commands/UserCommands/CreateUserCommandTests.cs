@@ -11,10 +11,10 @@ namespace Backend.Domain.Tests.Commands.UserCommands
 
         [TestMethod]
         public void ShouldReturnSuccessWhenCommandIsValid() 
-            => Assert.AreEqual(_valid.Valid(), true);
+            => Assert.AreEqual(_valid.Validation(), true);
 
         [TestMethod]
         public void ShouldReturnErrorWhenCommandIsInValid() 
-            => Assert.AreEqual(_inValid.Valid(), false);
+            => Assert.AreEqual(_inValid.Validation(), false);
     }
 }

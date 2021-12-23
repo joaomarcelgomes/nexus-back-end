@@ -11,10 +11,10 @@ namespace Backend.Domain.Tests.ValueObjects
 
         [TestMethod]
         public void ShouldReturnSuccessWhenPasswordIsValid() 
-            => Assert.AreEqual(_valid.IsValid, true);
+            => Assert.AreEqual(_valid.Valid, true);
 
         [TestMethod]
         public void ShouldReturnErrorWhenPasswordIsInValid() 
-            => Assert.AreEqual(_inValid.IsValid, false);
+            => Assert.AreEqual(_inValid.Valid, false);
     }
 }

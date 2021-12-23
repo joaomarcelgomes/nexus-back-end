@@ -19,10 +19,10 @@ namespace Backend.Domain.Tests.Commands.BuyCommands
 
         [TestMethod]
         public void ShouldReturnSuccessWhenListContainTheItem() 
-            => Assert.AreEqual(_valid.Valid(), true);
+            => Assert.AreEqual(_valid.Validation(), true);
 
         [TestMethod]
         public void ShouldReturnErrorWhenListNotContainTheItem() 
-            => Assert.AreEqual(_inValid.Valid(), false);
+            => Assert.AreEqual(_inValid.Validation(), false);
     }
 }
